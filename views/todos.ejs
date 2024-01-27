@@ -8,21 +8,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Todos</h1>
+    <h1>Todo</h1>
     <ul>
     <% todos.forEach( el => { %>
         <li class='todoItem' data-id='<%=el._id%>'>
+            <input type="checkbox" class='<%= el.completed === true ? 'completed' : 'not'%>' <%= el.completed === true ? "checked" : ""%>>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-            <span class='del'> Delete </span>
+            <!-- <span class='del'> Delete </span> -->
+            <img src="assets/svg/trash-can.svg" class="del trash-icon" alt="Delete icon">
         </li>
     <% }) %>    
     </ul>
 
-    <h2>Things left to do: <%= left %></h2>
+    <h4>Things left to do: <%= left %></h4>
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
+        <input type="submit" value=">">
     </form>
 
     <script src="js/main.js"></script>

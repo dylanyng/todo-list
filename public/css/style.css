@@ -1,10 +1,99 @@
-h1{
-    color: red;
+body {
+    font-family: Open Sans, sans-serif, Arial;
+    color: #454545;
+    font-size: 17px;
+    margin: 0.8em auto;
+    max-width: 800px;
+    padding: 1em;
 }
-.completed{
+
+h1 {
+    font-size: 2em;
+    margin: 0.7em auto;
+}
+
+ul {
+    line-height: 210%;
+    padding-inline-start: 0;
+}
+
+ul li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+ul li:hover {
+    color: #868686;
+}
+
+ul li > span {
+    margin: auto 12px;
+    cursor: default;
+}
+
+input[type = "checkbox"] {
+    height: 14px;
+    width: 14px;
+    transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.2);
+}
+
+input[type = "checkbox"]:checked {
+    accent-color: gray;
+}
+
+.trash-icon {
+    width: 13px;
+    filter: contrast(0.5);
+}
+
+.trash-icon:hover {
+    cursor: pointer;
+}
+
+.completed {
     text-decoration: line-through;
     color: gray;
 }
-.not{
-    text-decoration: underline;
+
+.not {
+
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 265px;
+}
+
+input[type="text"] {
+    border: none;
+    width: 215px;
+    height: 26px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: #ededed;
+    padding-left: 5px;
+}
+
+input[type="text"]:focus {
+    background-color: white;
+}
+
+input[type = "submit"] {
+    height: 28px;
+    width: 34px;
+    font-size: 15px;
+    background-color: #525252;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type = "submit"]:hover {
+    background-color: #3d3d3d;
 }
