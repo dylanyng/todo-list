@@ -105,3 +105,8 @@ input[type = "submit"] {
 input[type = "submit"]:hover {
     background-color: #3d3d3d;
 }
+
+.priority-3 {
+    font-size: larger;
+    font-weight: 700;
+}

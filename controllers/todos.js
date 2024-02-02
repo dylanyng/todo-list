@@ -3,7 +3,7 @@ const Todo = require('../models/Todo')
 module.exports = {
     getTodos: async (req,res)=>{
         try{
-            const todoItems = await Todo.find()
+            const todoItems = await Todo.find().sort( { "priority": -1} )
             const itemsLeft = await Todo.countDocuments({completed: false})
             res.render('todos.ejs', {todos: todoItems, left: itemsLeft})
         }catch(err){
@@ -12,7 +12,7 @@ module.exports = {
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false})
+            await Todo.create({todo: req.body.todoItem,  priority: req.body.todoPriority, completed: false})
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){
