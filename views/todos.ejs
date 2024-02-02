@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-do List</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>Todos</h1>
     <ul>
     <% todos.forEach( el => { %>
-        <li class='todoItem' data-id='<%=el._id%>'>
+        <li class="todoItem priority-<%=el.priority%>" data-id='<%=el._id%>'>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
             <span class='del'> Delete </span>
         </li>
@@ -22,7 +22,11 @@
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
+        <input type="submit"><br>
+
+        <input type="radio" id="high" name="todoPriority" value="3"><label for="html">High</label>
+        <input type="radio" id="medium" name="todoPriority" value="2"><label for="css">Medium</label>
+        <input type="radio" id="low" name="todoPriority" value="1"><label for="javascript">Low</label>
     </form>
 
     <script src="js/main.js"></script>

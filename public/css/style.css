@@ -8,3 +8,8 @@ h1{
 .not{
     text-decoration: underline;
 }
+
+.priority-3 {
+    font-size: larger;
+    font-weight: 700;
+}
