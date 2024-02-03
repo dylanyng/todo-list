@@ -14,7 +14,6 @@
         <li class='todoItem priority-<%=el.priority%>' data-id='<%=el._id%>'>
             <input type="checkbox" class='<%= el.completed === true ? 'completed' : 'not'%>' <%= el.completed === true ? "checked" : ""%>>
             <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-            <!-- <span class='del'> Delete </span> -->
             <img src="assets/svg/trash-can.svg" class="del trash-icon" alt="Delete icon">
         </li>
     <% }) %>    
@@ -23,12 +22,24 @@
     <h4>Things left to do: <%= left %></h4>
 
     <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit"><br>
-
-        <input type="radio" id="high" name="todoPriority" value="3"><label for="html">High</label>
-        <input type="radio" id="medium" name="todoPriority" value="2"><label for="css">Medium</label>
-        <input type="radio" id="low" name="todoPriority" value="1"><label for="javascript">Low</label>
+        <fieldset class="text-input">
+            <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+            <input type="submit" value=">">
+        </fieldset>
+        <fieldset class="priority-input">
+            <div>
+                <input type="radio" id="low" name="todoPriority" value="1" checked>
+                <label for="low">Low</label>
+            </div>
+            <div>
+                <input type="radio" id="medium" name="todoPriority" value="2">
+                <label for="medium">Medium</label>
+            </div>
+            <div>
+                <input type="radio" id="high" name="todoPriority" value="3">
+                <label for="high">High</label>
+            </div>
+        </fieldset>
     </form>
 
     <script src="js/main.js"></script>

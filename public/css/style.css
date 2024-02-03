@@ -66,15 +66,23 @@ input[type = "checkbox"]:checked {
     color: gray;
 }
 
-.not {
-
-}
-
 form {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: left;
     width: 265px;
+}
+
+form > fieldset {
+    display: flex;
+    border: none;
+    margin: 0;
+    padding: 0;
+    justify-content: space-between;
+}
+
+fieldset > input {
+    justify-content: space-between;
 }
 
 input[type="text"] {
@@ -106,7 +114,22 @@ input[type = "submit"]:hover {
     background-color: #3d3d3d;
 }
 
+input[type = "radio"]:checked {
+    background-color: gray;
+}
+
+.priority-input {
+    width: 215px;
+    margin: 10px 0;
+    font-size: 0.9em;
+}
+
+.priority-2 {
+    color: darkred
+
+}
+
 .priority-3 {
-    font-size: larger;
-    font-weight: 700;
+    color: darkred;
+    font-weight: 600;
 }
