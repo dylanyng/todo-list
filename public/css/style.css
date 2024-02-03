@@ -125,11 +125,19 @@ input[type = "radio"]:checked {
 }
 
 .priority-2 {
-    color: darkred
-
+    color: darkred;
 }
 
 .priority-3 {
     color: darkred;
     font-weight: 600;
+}
+
+#low {
+    accent-color: black;
+}
+
+#medium,
+    #high {
+    accent-color: darkred;
 }
