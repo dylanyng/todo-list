@@ -6,7 +6,7 @@ To Do List is built using the MVC Architecture, we have also implemented priorit
 
 # Objectives
 
-- It's a beginner level app created to gain a better understanding of the MVC architecture
+- A beginner level app created to gain a better understanding of the MVC architecture
 
 
 ---
@@ -25,6 +25,6 @@ dotenv, ejs, express, mongodb, mongoose, nodemon
 
 # Things to add
 
-- Create a `.env` file within the config folder and add the following as `key: value` 
+- Create a `.env` file within the config directory and add the following as `key: value` 
   - PORT = 2121 (can be any port example: 3000) 
   - DB_STRING = `your database URI` 
