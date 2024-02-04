@@ -19,7 +19,7 @@
     <% }) %>    
     </ul>
 
-    <h4>Things left to do: <%= left %></h4>
+    <h4><%= user.userName %> has <%= left %> things left to do.</h4>
 
     <form action="/todos/createTodo" method='POST'>
         <fieldset class="text-input">
