@@ -3,19 +3,19 @@ const Todo = require('../models/Todo')
 module.exports = {
     getTodos: async (req,res)=>{
         try{
-            const todoItems = await Todo.find().sort( { "priority": -1} )
-            const itemsLeft = await Todo.countDocuments({completed: false})
-            res.render('todos.ejs', {todos: todoItems, left: itemsLeft})
-        }catch(err){
+            const todoItems = await Todo.find({userId:req.user.id}).sort( { "priority": -1} )
+            const itemsLeft = await Todo.countDocuments({userId:req.user.id, completed: false})
+            res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
+        } catch(err) {
             console.log(err)
         }
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem,  priority: req.body.todoPriority, completed: false})
+            await Todo.create({todo: req.body.todoItem,  priority: req.body.todoPriority, completed: false, userId: req.user.id})
             console.log('Todo has been added!')
             res.redirect('/todos')
-        }catch(err){
+        } catch(err) {
             console.log(err)
         }
     },
@@ -26,7 +26,7 @@ module.exports = {
             })
             console.log('Marked Complete')
             res.json('Marked Complete')
-        }catch(err){
+        } catch(err) {
             console.log(err)
         }
     },
@@ -37,7 +37,7 @@ module.exports = {
             })
             console.log('Marked Incomplete')
             res.json('Marked Incomplete')
-        }catch(err){
+        } catch(err) {
             console.log(err)
         }
     },
@@ -47,7 +47,7 @@ module.exports = {
             await Todo.findOneAndDelete({_id:req.body.todoIdFromJSFile})
             console.log('Deleted Todo')
             res.json('Deleted It')
-        }catch(err){
+        } catch(err) {
             console.log(err)
         }
     }
